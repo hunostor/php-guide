@@ -1,1 +1,5 @@
-# php_guide
+### PhpGuide
+
+## String type
+
+## Collection type

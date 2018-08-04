@@ -1,0 +1,23 @@
+{
+    "name": "hunostor/php-guide",
+    "description": "Iteration classes, and String type",
+    "license": "MIT",
+    "require-dev": {
+        "php": ">=7.1",
+        "phpunit/phpunit": "^7.2"
+    },
+    "authors": [
+        {
+            "name": "Poroszkai Attila",
+            "email": "poroszkai.attila@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpGuide\\": "src"
+        }
+    }
+}
