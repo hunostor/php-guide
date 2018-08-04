@@ -78,4 +78,14 @@ class StringTypeTest extends \PHPUnit\Framework\TestCase
         $length = $string->length();
         $this->assertSame(0, $length);
     }
+
+    /**
+     * @test
+     */
+    public function string_behavior_use_magical_method()
+    {
+        $string = new StringType('attila');
+        $lit = (string) $string;
+        $this->assertSame('attila', $lit);
+    }
 }

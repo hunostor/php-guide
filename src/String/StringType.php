@@ -10,6 +10,7 @@ namespace PhpGuide\String;
 
 class StringType implements StringInterface
 {
+    /** @var string */
     private $string;
 
     public function __construct($string)
@@ -38,5 +39,14 @@ class StringType implements StringInterface
     public function length(): int
     {
         return strlen($this->string);
+    }
+
+    /**
+     * Object behavior string
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->string;
     }
 }
