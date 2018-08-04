@@ -8,7 +8,7 @@
 
 namespace PhpGuide\String;
 
-class StringType
+class StringType implements StringInterface
 {
     private $string;
 
@@ -29,5 +29,14 @@ class StringType
     public function getString(): string
     {
         return $this->string;
+    }
+
+    /**
+     * sting length
+     * @return int
+     */
+    public function length(): int
+    {
+        return strlen($this->string);
     }
 }

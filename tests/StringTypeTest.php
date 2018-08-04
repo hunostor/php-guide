@@ -54,4 +54,28 @@ class StringTypeTest extends \PHPUnit\Framework\TestCase
 
         $this->assertTrue($flag);
     }
+
+    /**
+     * @test
+     */
+    public function string_length()
+    {
+        $string = new StringType('a');
+        $length = $string->length();
+        $this->assertSame(1, $length);
+
+        $string = new StringType('alma');
+        $length = $string->length();
+        $this->assertSame(4, $length);
+    }
+
+    /**
+     * @test
+     */
+    public function string_length_equal_0_empty_string()
+    {
+        $string = new StringType('');
+        $length = $string->length();
+        $this->assertSame(0, $length);
+    }
 }
