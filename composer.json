@@ -3,7 +3,6 @@
     "description": "Iteration classes, and String type",
     "license": "MIT",
     "require-dev": {
-        "php": ">=7.1",
         "phpunit/phpunit": "^7.2"
     },
     "authors": [
@@ -13,7 +12,7 @@
         }
     ],
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.1"
     },
     "autoload": {
         "psr-4": {
