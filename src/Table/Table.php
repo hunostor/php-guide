@@ -94,7 +94,7 @@ class Table implements TableInterface
      */
     public function renderHTML(): string
     {
-        $this->html = '<table class="'.$this->tableClasses.'">' . PHP_EOL;
+        $this->html = '<table>' . PHP_EOL;
         if(count($this->header) > 0) {
             $this->html .= '<thead>' . PHP_EOL;
             $this->html .= '<tr>' . PHP_EOL;
