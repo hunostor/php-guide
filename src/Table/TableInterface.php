@@ -46,4 +46,23 @@ interface TableInterface
      * @return string
      */
     public function renderHTML(): string;
+
+
+    /**
+     * set up table html element on classes
+     * @param $classes string
+     */
+    public function setTableClasses(string $classes): void;
+
+    /**
+     * set up table header html element on classes
+     * @param string $classes
+     */
+    public function setHeaderClasses(string $classes): void;
+
+    /**
+     * set up table (tbody) body html element on classes
+     * @param string $classes
+     */
+    public function setBodyClasses(string $classes): void;
 }

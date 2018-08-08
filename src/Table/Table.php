@@ -19,6 +19,8 @@ class Table implements TableInterface
     protected $body = [];
 
     protected $tableClasses = '';
+    protected $headerClasses = '';
+    protected $bodyClasses = '';
     
     protected $html = '';
 
@@ -94,9 +96,9 @@ class Table implements TableInterface
      */
     public function renderHTML(): string
     {
-        $this->html = '<table>' . PHP_EOL;
+        $this->html = '<table'.$this->renderClasses('table').'>' . PHP_EOL;
         if(count($this->header) > 0) {
-            $this->html .= '<thead>' . PHP_EOL;
+            $this->html .= '<thead'.$this->renderClasses('header').'>' . PHP_EOL;
             $this->html .= '<tr>' . PHP_EOL;
             foreach ($this->header as $column) {
                 $this->html .= '<th scope="col">' . $column . '</th>' . PHP_EOL;
@@ -106,7 +108,7 @@ class Table implements TableInterface
         }
 
         if(count($this->body) > 0) {
-            $this->html .= '<tbody>' . PHP_EOL;
+            $this->html .= '<tbody'.$this->renderClasses('body').'>' . PHP_EOL;
             foreach ($this->body as $row) {
                 $this->html .= '<tr>' . PHP_EOL;
                 $this->html .= '<th scope="row">' . $row[0] . '</th>' . PHP_EOL;
@@ -122,5 +124,47 @@ class Table implements TableInterface
         $this->html .= '</table>';
 
         return $this->html;
+    }
+
+    protected function renderClasses(string $place)
+    {
+        switch ($place) {
+            case 'table':
+                return $this->tableClasses !== '' ? ' class="'.$this->tableClasses.'"' : '';
+                break;
+            case 'header':
+                return $this->headerClasses !== '' ? ' class="'.$this->headerClasses.'"' : '';
+                break;
+            case 'body':
+                return $this->bodyClasses !== '' ? ' class="'.$this->bodyClasses.'"' : '';
+                break;
+        }
+    }
+
+    /**
+     * set up table html element on classes
+     * @param $classes string
+     */
+    public function setTableClasses(string $classes): void
+    {
+        $this->tableClasses = $classes;
+    }
+
+    /**
+     * set up table header html element on classes
+     * @param string $classes
+     */
+    public function setHeaderClasses(string $classes): void
+    {
+        $this->headerClasses = $classes;
+    }
+
+    /**
+     * set up table (tbody) body html element on classes
+     * @param string $classes
+     */
+    public function setBodyClasses(string $classes): void
+    {
+        $this->bodyClasses = $classes;
     }
 }

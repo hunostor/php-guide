@@ -144,4 +144,64 @@ class TableTest extends \PHPUnit\Framework\TestCase
         $this->assertSame($html, $table->renderHTML());
     }
 
+    /**
+     * @test
+     */
+    public function table_render_html_add_class_to_table_element()
+    {
+        $table = new Table();
+        $table->setHeader([ "price", "description"]);
+        $table->setTableClasses('table');
+        $body = [
+            [34, 'description 1'],
+            [3346, 'description 2'],
+            [4543, 'description 3'],
+        ];
+        $table->setBody($body);
+        $html = file_get_contents('./tests/html/tableClasses.html');
+
+        $this->assertSame($html, $table->renderHTML());
+    }
+
+    /**
+     * @test
+     */
+    public function table_render_html_add_class_to_table_head_element()
+    {
+        $table = new Table();
+        $table->setHeader([ "price", "description"]);
+        $table->setTableClasses('table');
+        $table->setHeaderClasses('headClass');
+        $body = [
+            [34, 'description 1'],
+            [3346, 'description 2'],
+            [4543, 'description 3'],
+        ];
+        $table->setBody($body);
+        $html = file_get_contents('./tests/html/headClasses.html');
+
+        $this->assertSame($html, $table->renderHTML());
+    }
+
+    /**
+     * @test
+     */
+    public function table_render_html_add_class_to_table_body_element()
+    {
+        $table = new Table();
+        $table->setHeader([ "price", "description"]);
+        $table->setTableClasses('table');
+        $table->setHeaderClasses('headClass');
+        $table->setBodyClasses('body striped');
+        $body = [
+            [34, 'description 1'],
+            [3346, 'description 2'],
+            [4543, 'description 3'],
+        ];
+        $table->setBody($body);
+        $html = file_get_contents('./tests/html/bodyClasses.html');
+
+        $this->assertSame($html, $table->renderHTML());
+    }
+
 }
